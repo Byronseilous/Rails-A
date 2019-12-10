@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RailsSimpleAuthentication</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container"%>
+	
+
+	<div class="row" id="headrow">
+		
+
+		<%if current_user%>
+			<ul class="nav nav-tabs nav-justified">
+				<!--<%#if params[:controller]!='tasks'%>-->
+				<%=link_to "Tasks",tasks_path, class:"btn btn-primary"%>
+				<%=link_to "Users",users_path,class:"btn btn-primary"%>
+				<p class="floatright-btn" id="useremailid"><%= current_user.email %></p> <br>
+			</ul>
+			
+			<p class="floatright-btn"><%= link_to 'logout',  logout_path,  method: "delete", data: { confirm: 'Are you sure?' } ,class: "btn btn-danger"%></p>
+			 	
+					
+		<%else%>
+			<div class="floatright-btn">
+				<ul class="nav nav-tabs">
+					<%=link_to "Sign up",new_user_path,class: "btn btn-primary"%>
+					<%=link_to "log in",'/login',class: "btn btn-primary"%>
+				</ul>
+		</div>
+		<%end%>
+	</div>
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+		<%unless flash.empty?%>
+			<%flash.each do |key,value|%>
+				<div class="flash"><p><%=value%><p></div>
+			<%end%>
+		<%end%>
+		</div>
+		<div class="col-md-3"></div>
+
+	</div>
+	<div class="row">
+		
+		<%= yield %>
+		
+	</div>
+
+		
+	
+</div>
+</body>
+</html>
