@@ -1,37 +1,19 @@
-README
-======
+# Ruby on Rails Authentication CRUD Project
 
+## Description
 
-Steps to get started
---------------------
+This project is a Ruby on Rails web application that demonstrates user authentication and basic CRUD (Create, Read, Update, Delete) operations. It allows users to sign up, log in, create, view, edit, and delete resources.
 
+## Features
 
+- **User Authentication**:
+  - Register and log in securely.
+  - Users can change their passwords.
 
-1. Copy the git repository in your local machine
-
-    	$ git clone https://github.com/nagarajbhat/rails_authentication_crud.git
-
-
-2. Enter into the app directory
-
-		$ cd rails_authentication_crud
-
-
-3. Install the dependencies specified in your Gemfile
-
-		$ bundle install
-
-
-4. Perform migration
-
-		$ rake db:migrate
-
-
-5. Start the server
-
-		$ rails s
-
-
-6. Open up the web browser and go to "http://localhost:3000"
+- **CRUD Operations**:
+  - Create, read, update, and delete resources (e.g., articles, posts, items).
+  
+- **User Authorization**:
+  - Control access to resources based on user roles and permissions.
 
 
